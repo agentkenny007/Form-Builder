@@ -1,0 +1,60 @@
+
+.form-builder {
+    width: 600px;
+    margin: 0 auto 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .85);
+    border-radius: 3px 3px 0 0;
+}
+
+.form-head, .form-foot {
+    height: 80px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.form-head {
+    background: #428BCA;
+    border-radius: 3px 3px 0 0;
+    h3 {
+        color: white;
+        line-height: 80px;
+        font-size: 40px;
+        font-weight: normal;
+    }
+}
+
+.form-foot {
+    background: #C9DEF0;
+    padding: 21px;
+    input {
+        background: #428BCA;
+        border: 0;
+        border-radius: 3px;
+        color: white;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+.form-content {
+    padding: 30px 20px 10px;
+    div {
+        margin-bottom: 20px;
+        * {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: 0 0 3px black;
+        }
+    }
+    textarea {
+        height: 90px;
+    }
+    select {
+        background: white;
+        height: 36px;
+    }
+}
