@@ -20,33 +20,33 @@ $.ajax({
         console.log(data);
         data.forEach(function(item){
             var formObj, type = item.type;
-            if (type == "textarea"){
+            if (type == "textarea")
+                formObj = $(`<${type} id="${item.id}" placeholder="${item.label}"></${type}>`);
+            else if (type == "select") {
                 formObj = $(`
-                    <div class="${type}">
-                        <${type} id="${item.id}" placeholder="${item.label}"></${type}>
-                        <i class="fa ${item.icon}"></i>
-                    </div>`);
-            } else if (type == "select") {
-                formObj = $(`
-                    <div class="${type}">
-                        <${type} id="${item.id}">
-                            <option value="">${item.label}</option>
-                        </${type}>
-                    </div>`);
+                    <${type} id="${item.id}">
+                        <option>${item.label}...</option>
+                    </${type}>`);
                     item.options.forEach(function(o){ // for "option"
-                        formObj.find(type).append(
-                            option.clone().val(o.value).append(o.label)
+                        formObj.append(option
+                            .clone()
+                            .val(o.value)
+                            .append(o.label)
                         );
                     });
             } else {
-                formObj = input.clone()
+                formObj = input
+                    .clone()
                     .attr("id", item.id)
                     .attr("type", type)
-                    .attr("placeholder", item.label)
-                    .wrap(`<div class="${type}">`)
-                    .append(`<i class="fa ${item.icon}"></i>`);
+                    .attr("placeholder", item.label);
             }
-            formContent.append(formObj);
+            formContent
+                .append(formObj);
+            formObj
+                .wrap(`<div class="${type}"></div>`)
+                .parent()
+                .append(function(){ if (item.icon) return `<i class="fa ${item.icon}"></i>`; });
         });
     },
     error: function(data){
