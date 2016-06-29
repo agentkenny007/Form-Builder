@@ -53,3 +53,7 @@ $.ajax({
         console.log("There was an error: " + data);
     }
 })
+
+$('body').delegate('input, textarea', 'blur focus', function(){
+    $(this).siblings('i').toggleClass('active');
+});
