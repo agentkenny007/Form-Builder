@@ -50,7 +50,7 @@ $.ajax({
         });
     },
     error: function(data){
-        console.log("There was an error: " + data);
+        console.log("There was an error:\n", data);
     }
 })
 
